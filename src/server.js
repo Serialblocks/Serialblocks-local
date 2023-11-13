@@ -49,7 +49,11 @@ io.on("connection", (socket) => {
       const parsedData = JSON.parse(data);
       for (const key of Object.keys(parsedData)) {
         parsedData[key] = {
-          value: parsedData[key]?.value || parsedData[key],
+          value:
+            typeof parsedData[key] === "object" &&
+            Object.hasOwn(parsedData[key], "value")
+              ? parsedData[key].value
+              : parsedData[key],
           interval: parsedData[key]?.interval,
           timestamp: Date.now(),
         };
