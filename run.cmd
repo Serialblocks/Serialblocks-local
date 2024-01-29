@@ -1,0 +1,1 @@
+npx concurrently "npm run server" "lt --port 3003"
