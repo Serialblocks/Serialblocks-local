@@ -6,8 +6,7 @@
   "main": "server.js",
   "scripts": {
     "server": "nodemon \"src/server.js\"",
-    "dist": "nodemon \"./dist/src/index.js\"",
-    "build": "PLACE_HOLDER_FOR_ACTUAL_BUILD_COMMAND_LATER_TO_BE_ADDED"
+    "dist": "nodemon \"./dist/src/index.js\""
   },
   "dependencies": {
     "chalk": "^5.3.0",
