@@ -6,13 +6,14 @@ import ip from 'ip'
 import chalk from 'chalk'
 import 'dotenv/config'
 import { isJSON } from './lib/utils.js'
-const PORT = process.env.PORT || 3030
+const PORT = process.env.npm_package_config_port || 3003
 const ipAddress = ip.address()
 const httpServer = https.createServer()
 const io = new Server(httpServer)
 io.listen(PORT)
 
-console.log(`local ip address: http://${ipAddress}:${PORT}`)
+console.log(`local ip address: http://${ipAddress}:${PORT}`);
+
 io.on('connection', (socket) => {
   console.log(socket.handshake.auth)
   const { DisplayName, delimiter, EOL, ...serialPortConfig } =

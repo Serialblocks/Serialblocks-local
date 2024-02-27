@@ -2,11 +2,15 @@
   "name": "serialblocks",
   "type": "module",
   "version": "1.0.0",
+  "config": {
+    "port": "3003"
+  },
   "description": "",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon \"src/server.js\"",
-    "dist": "nodemon \"./dist/src/index.js\""
+    "_server": "nodemon \"src/server.js\"",
+    "_expose": "ver && lt --port %npm_package_config_port% || lt --port $npm_package_config_port",
+    "server": "npx concurrently \"npm run _server\" \"npm run _expose\""
   },
   "dependencies": {
     "chalk": "^5.3.0",
@@ -18,8 +22,5 @@
     "socket.io": "^4.7.2"
   },
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "rollup": "^3.28.0"
-  }
+  "license": "ISC"
 }
